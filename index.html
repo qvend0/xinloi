@@ -9,55 +9,65 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 body{
-    height:100vh;
+    min-height:100vh;
     overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#0f0f0f;
+    background:
+    radial-gradient(circle at top,#1f2937,#0f0f0f 60%);
     color:white;
-}
-.container{
-    text-align:center;
     padding:20px;
 }
+.container{
+    width:100%;
+    max-width:500px;
+    text-align:center;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:35px 25px;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.4);
+}
 h1{
-    font-size:42px;
+    font-size:clamp(32px,6vw,46px);
     margin-bottom:15px;
-    letter-spacing:2px;
+    font-weight:700;
 }
 p{
-    color:#bdbdbd;
-    font-size:18px;
+    color:#b7b7b7;
+    font-size:16px;
     line-height:1.8;
     margin-bottom:35px;
 }
 .buttons{
     position:relative;
-    width:100%;
     height:120px;
 }
 button{
     padding:14px 28px;
     border:none;
-    border-radius:10px;
-    font-size:18px;
+    border-radius:14px;
+    font-size:16px;
     cursor:pointer;
-    transition:.2s;
+    transition:.25s;
 }
 #yesBtn{
     background:white;
     color:black;
-    font-weight:bold;
+    font-weight:700;
+    box-shadow:0 8px 25px rgba(255,255,255,.15);
 }
 #yesBtn:hover{
-    transform:scale(1.05);
+    transform:translateY(-3px);
 }
 #noBtn{
-    background:#1e1e1e;
+    background:#222;
     color:white;
     border:1px solid #444;
     position:absolute;
@@ -66,24 +76,25 @@ button{
 #result{
     position:fixed;
     inset:0;
-    background:#000;
+    background:#090909;
     display:none;
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    padding:20px;
     z-index:999;
 }
 #result img{
-    width:340px;
-    max-width:85%;
-    border-radius:15px;
+    width:min(380px,90vw);
+    border-radius:20px;
+    box-shadow:
+    0 0 40px rgba(255,255,255,.08);
     animation:zoom .6s ease;
-    box-shadow:0 0 30px rgba(255,255,255,.15);
 }
 @keyframes zoom{
     from{
         opacity:0;
-        transform:scale(.5);
+        transform:scale(.7);
     }
     to{
         opacity:1;
@@ -91,24 +102,39 @@ button{
     }
 }
 #result h2{
-    margin-top:25px;
-    color:white;
-    font-size:32px;
-    letter-spacing:2px;
+    margin-top:24px;
+    font-size:30px;
+    font-weight:700;
 }
 #result p{
     margin-top:10px;
-    color:#aaa;
+    color:#9f9f9f;
+}
+@media (max-width:600px){
+    .container{
+        padding:28px 18px;
+    }
+    h1{
+        font-size:34px;
+    }
+    p{
+        font-size:15px;
+    }
+    button{
+        font-size:15px;
+        padding:12px 22px;
+    }
+    #result h2{
+        font-size:24px;
+    }
 }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>Anh xin lỗi.</h1>
-    <p>
-        Anh biết mình đã làm em buồn.<br>
-        Anh không mong mọi thứ sẽ ổn ngay lập tức,<br>
-        nhưng anh mong em cho anh một cơ hội sửa sai.
+    <h1> xin lỗi nhiều mà.</h1>
+    <p><br>
+        
     </p>
     <div class="buttons">
         <button id="yesBtn" onclick="forgive()">
@@ -121,9 +147,9 @@ button{
 </div>
 <div id="result">
     <img src="https://files.catbox.moe/uox3b8.png" alt="">
-    <h2>Cảm ơn hẹ hẹ</h2>
+    <h2>Cảm ơn hẹ hẹ 😆</h2>
     <p>
-        .
+        Biết mà 😎
     </p>
 </div>
 <audio id="music">
